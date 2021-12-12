@@ -32,14 +32,14 @@ fi
 echo "-------------------------------------------------"
 echo "       Setup Language to US and set locale       "
 echo "-------------------------------------------------"
-sed -i 's/^#da_DK.UTF-8 UTF-8/da_DK.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^#en_DK.UTF-8 UTF-8/en_DK.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone Europe/Copenhagen
 timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="da_DK.UTF-8" LC_TIME="da_DK.UTF-8"
+localectl --no-ask-password set-locale LANG="en_DK.UTF-8" LC_TIME="en_DK.UTF-8"
 
 # Set keymaps
-localectl --no-ask-password set-keymap us
+localectl --no-ask-password set-keymap dk
 
 # Add sudo no password rights
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -84,7 +84,6 @@ PKGS=(
 'btrfs-progs'
 'celluloid' # video players
 'cmatrix'
-'code' # Visual Studio code
 'cronie'
 'cups'
 'dialog'
@@ -103,7 +102,6 @@ PKGS=(
 'fuseiso'
 'gamemode'
 'gcc'
-'gimp' # Photo editing
 'git'
 'gparted' # partition management
 'gptfdisk'
@@ -116,7 +114,6 @@ PKGS=(
 'haveged'
 'htop'
 'iptables-nft'
-'jdk-openjdk' # Java 17
 'kate'
 'kcodecs'
 'kcoreaddons'
@@ -136,7 +133,6 @@ PKGS=(
 'linux-firmware'
 'linux-headers'
 'lsof'
-'lutris'
 'lzop'
 'm4'
 'make'
@@ -168,7 +164,6 @@ PKGS=(
 'python-psutil'
 'python-pyqt5'
 'python-pip'
-'qemu'
 'rsync'
 'sddm'
 'sddm-kcm'
@@ -185,9 +180,6 @@ PKGS=(
 'unrar'
 'unzip'
 'usbutils'
-'vim'
-'virt-manager'
-'virt-viewer'
 'wget'
 'which'
 'wine-gecko'
